@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap&subset=cyrillic');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #E0DCDB;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px;
+}
+
+.header_tab {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    border-left: 3px #000 solid;
+    border-bottom: 3px #000 solid;
+    padding: 0 0 4px 8px;
+    cursor: pointer;
+}
+
+.header_tab_show {
+    border-left: 3px #7B68EE solid;
+    border-bottom: 3px #7B68EE solid;
+    color: #7B68EE;
+}
+
+.header_tab_hide {
+    border-left: 3px #000 solid;
+    border-bottom: 3px #000 solid;
+    color: #000;
+}
+
+.header_tab:hover {
+    border-left: 3px #7B68EE solid;
+    border-bottom: 3px #7B68EE solid;
+    cursor: pointer;
+    color: #7B68EE;
+}
+
+.tab_content {
+    display: flex;
+    border: 1px #000 solid;
+    margin: 0 40px;
+}
+
+.show {
+    display: flex;
+}
+
+.hide {
+    display: none;
+}
+
+.tab_content > span {
+    font: bold 30px sans-serif;
+}
