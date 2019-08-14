@@ -3,10 +3,12 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    outline: none;
 }
 
 body {
-    background-color: #E0DCDB;
+    background-color: #b1bdaf;
 }
 
 .header {
@@ -19,29 +21,27 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
     font-size: 20px;
-    border-left: 3px #000 solid;
-    border-bottom: 3px #000 solid;
-    padding: 0 0 4px 8px;
+    border: 3px #68894A solid;
+    padding: 5px 8px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     cursor: pointer;
 }
 
 .header_tab_show {
-    border-left: 3px #7B68EE solid;
-    border-bottom: 3px #7B68EE solid;
-    color: #7B68EE;
+    border: 3px #68894A solid;
+    color: #68894A;
 }
 
 .header_tab_hide {
-    border-left: 3px #000 solid;
-    border-bottom: 3px #000 solid;
+    border: 3px #000 solid;
     color: #000;
 }
 
 .header_tab:hover {
-    border-left: 3px #7B68EE solid;
-    border-bottom: 3px #7B68EE solid;
+    border: 3px rgb(77, 105, 50) solid;
     cursor: pointer;
-    color: #7B68EE;
+    color: rgb(58, 82, 36);
 }
 
 .tab_content {
@@ -61,3 +61,101 @@ body {
 .tab_content > span {
     font: bold 30px sans-serif;
 }
+
+.slider {
+    margin-top: 15px;
+    position: relative;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.slider_item {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+img {
+    width: 100%;
+}
+
+.prev {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    width: 90px;
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    height: 99.5%;
+    left: 10%;
+}
+
+.prev:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.arrow_left {
+    background: url(/icons/left-arrow.svg) center no-repeat;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    top: 50%;
+    right: 35%;
+    position: absolute;
+    opacity: 0.5;
+    transition: 1s;
+}
+
+.next {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    width: 90px;
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    height: 99.5%;
+    right: 10%;
+}
+
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.arrow_right {
+    background: url(/icons/right-arrow.svg) center no-repeat;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    top: 50%;
+    left: 35%;
+    position: absolute;
+    opacity: 0.5;
+    transition: 1s;
+}
+
+.dots_wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.dot {
+    background-color: transparent;
+    margin: 0 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px #68894A solid;
+}
+
+.dot_active {
+    background-color: #68894A;
+}
+
