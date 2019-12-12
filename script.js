@@ -2,12 +2,11 @@
 
 window.addEventListener('DOMContentLoaded', function() {
 
+    let header = document.querySelector('.header'),
+        tabBtn = document.querySelectorAll('.header_tab'),
+        tabContent = document.querySelectorAll('.tab_content');
 
     function tabs() {
-        let header = document.querySelector('.header'),
-            tabBtn = document.querySelectorAll('.header_tab'),
-            tabContent = document.querySelectorAll('.tab_content');
-
 
         function hideTabContent(x) {
             for (let i = x; i < tabContent.length; i++) {
@@ -47,7 +46,8 @@ window.addEventListener('DOMContentLoaded', function() {
             prev = document.querySelector('.prev'),
             next = document.querySelector('.next'),
             dotsWrapper = document.querySelector('.dots_wrapper'),
-            dots = document.querySelectorAll('.dot');
+            dots = document.querySelectorAll('.dot'),
+            slider = document.querySelector('.slider');
 
         showSlides(slideIndex);
 
@@ -75,22 +75,60 @@ window.addEventListener('DOMContentLoaded', function() {
             showSlides(slideIndex = n);
         }
 
-        prev.addEventListener('click', () => {
-            plusSlides(-1);
-        });
-
         next.addEventListener('click', () => {
             plusSlides(1);
         });
 
+        prev.addEventListener('click', () => {
+            plusSlides(-1);
+        });
+
         dotsWrapper.addEventListener('click', (event) => {
-            for (let i = 0; i < dots.length + 1; i++) {
+            for (let i = 1; i <= dots.length; i++) {
                 if (event.target.classList.contains('dot') && 
                     event.target == dots[i - 1]) {
                     currentSlide(i);
+                    clearInterval(timerId);
+                    autoshow();
                 }
             }
         });
+
+        let timerId;
+
+        function autoshow() {
+            timerId = setInterval( () => plusSlides(1), 2000
+            );
+        }
+        autoshow();
+
+        slider.addEventListener('mouseover', (event) => {
+            clearInterval(timerId);
+        });
+
+        slider.addEventListener('mouseout', (event) => {
+            autoshow();
+        });
+
+
+
+        header.addEventListener('click', (event) => {
+            for (let i = 0; i <= tabBtn.length; i++) {
+                if (event.target.classList.contains('header_tab') && 
+                    event.target != tabBtn[0]) {
+                    clearInterval(timerId);
+                }
+                // if (event.target.classList.contains('header_tab') && 
+                //     event.target == tabBtn[0]) {
+                //     autoshow();
+                // }
+            }
+        });
+
+        // if (tabContent[0].classList.contains('tab_content show')) {
+        //     autoshow();
+        // }
+
     }
     slider();
 
