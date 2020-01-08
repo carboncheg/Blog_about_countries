@@ -2,8 +2,9 @@
 
 window.addEventListener('DOMContentLoaded', function() {
 
+    // Вкладки
     let header = document.querySelector('.header'),
-        tabBtn = document.querySelectorAll('.header_tab'),
+        tabBtn = document.querySelectorAll('.btn_tab'),
         tabContent = document.querySelectorAll('.tab_content');
 
     function tabs() {
@@ -24,7 +25,7 @@ window.addEventListener('DOMContentLoaded', function() {
         }
 
         header.addEventListener('click', (e) => {
-            if (e.target && e.target.classList.contains('header_tab')) {
+            if (e.target && e.target.classList.contains('btn_tab')) {
                 for (let i = 0; i < tabBtn.length; i++) {
                     if (e.target == tabBtn[i]) {
                         hideTabContent(0);
@@ -38,7 +39,7 @@ window.addEventListener('DOMContentLoaded', function() {
     tabs();
 
 
-
+    // Слайдер
     function slider() {
 
         let slideIndex = 1,
@@ -114,11 +115,11 @@ window.addEventListener('DOMContentLoaded', function() {
 
         header.addEventListener('click', (event) => {
             for (let i = 0; i <= tabBtn.length; i++) {
-                if (event.target.classList.contains('header_tab') && 
+                if (event.target.classList.contains('btn_tab') && 
                     event.target != tabBtn[0]) {
                     clearInterval(timerId);
                 }
-                // if (event.target.classList.contains('header_tab') && 
+                // if (event.target.classList.contains('btn_tab') && 
                 //     event.target == tabBtn[0]) {
                 //     autoshow();
                 // }
@@ -131,5 +132,34 @@ window.addEventListener('DOMContentLoaded', function() {
 
     }
     slider();
+
+
+    // Блог
+    let btnWritePost = document.querySelector('.write-post'),
+        modal = document.querySelector('.modal'),
+        bgModal = document.querySelector('.bg-modal');
+
+    function addModal() {
+        btnWritePost.addEventListener('click', () => {
+            bgModal.classList.remove('hidden');
+            modal.classList.remove('hidden');
+        });
+    }
+    addModal();
+
+    function removeModal() {
+        bgModal.addEventListener('click', () => {
+            bgModal.classList.add('hidden');
+            modal.classList.add('hidden');
+        });
+    
+        document.addEventListener('keydown', (e) => {
+            if (e.code == 'Escape') {
+                bgModal.classList.add('hidden');
+                modal.classList.add('hidden');
+            }
+        });
+    }
+    removeModal();
 
 });

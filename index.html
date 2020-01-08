@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Blog_about_country</title>
     <!-- Yandex.Metrika counter -->
     <!-- <script type="text/javascript" >
@@ -24,11 +25,11 @@
 </head>
 <body>
     <div class="header">
-        <div class="header_tab">Слайдер</div>
-        <div class="header_tab">Блог</div>
-        <div class="header_tab">Виджет</div>
+        <div class="btn_tab">Слайдер</div>
+        <div class="btn_tab">Блог</div>
+        <div class="btn_tab">Виджет</div>
     </div>
-    <div class="tab_content">    
+    <div class="tab_content">
         <div class="slider">
             <div class="slider_item">
                 <img src="img/Russia__.jpg" alt="slider">
@@ -62,8 +63,16 @@
         </div>
     </div>
     <div class="tab_content">
-        <input type="text">
-        <textarea name="content" id="" cols="30" rows="10"></textarea>
+        <p class="init-modal-msg">Пока нет ни одного поста</p>
+        <div class="modal hidden">
+            <form id="blog_form">
+                <input type="text" id="blog_header" placeholder="Заголовок блога">
+                <textarea name="content" id="blog_content" placeholder="Текст блога"></textarea>
+                <button type="submit" class="add-post">Добавить пост</button>
+            </form>
+        </div>
+        <div class="bg-modal hidden"></div>
+        <button class="write-post">Написать пост</button>
     </div>
     <div class="tab_content"><span>3</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam hic at rem debitis repudiandae officia, est, maiores maxime, incidunt atque nam sint. Velit quia quis rerum corporis, adipisci neque maiores!</div>
     </div>
